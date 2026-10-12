@@ -6,7 +6,7 @@ st.set_page_config(page_title="Quan ly diem sinh vien",
                    page_icon="📚",
                    layout="wide")
 
-# #1. Tao du lieu
+#1. Tao du lieu
 data = {
     "Ho_ten": [
         
@@ -23,14 +23,14 @@ data = {
 
 df = pd.DataFrame(data)
 
-# #2. Tinh diem tong ket
+#2. Tinh diem tong ket
 df["Tong_ket"] = (
     0.2 * df["Chuyen_can"]
     + 0.3 * df["Giua_ky"]
     + 0.5 * df["Cuoi_ky"]
 ).round(2)
 
-# #3. Xep loai
+#3. Xep loai
 def xep_loai(diem):
     if diem >= 8.5:
         return "Gioi"
@@ -42,7 +42,7 @@ def xep_loai(diem):
 
 df["Xep_loai"] = df["Tong_ket"].apply(xep_loai)
 
-# #4. Tieu de va bang diem
+#4. Tieu de va bang diem
 st.title("QUẢN LÝ ĐIỂM SINH VIÊN")
 
 bang = df.rename(columns={
@@ -57,7 +57,7 @@ bang = df.rename(columns={
 st.subheader("Bảng điểm sinh viên")
 st.dataframe(bang, use_container_width=True)
 
-# #5. Thong ke
+#5. Thong ke
 st.subheader("Thống kê kết quả")
 
 c1, c2, c3 = st.columns(3)
@@ -79,7 +79,7 @@ st.write("**Sinh viên cao điểm nhất:**",
 st.write("**Sinh viên thấp điểm nhất:**",
          thap["Ho_ten"], "-", thap["Tong_ket"])
 
-# #6. Chon sinh vien
+#6. Chon sinh vien
 st.subheader("Tra cứu điểm sinh viên")
 
 ten = st.selectbox("Chọn sinh viên", df["Ho_ten"])
@@ -92,7 +92,7 @@ st.write("**Cuối kỳ:**", sv["Cuoi_ky"])
 st.write("**Điểm tổng kết:**", sv["Tong_ket"])
 st.write("**Xếp loại:**", sv["Xep_loai"])
 
-# #7. Bieu do
+#7. Bieu do
 st.subheader("Biểu đồ điểm tổng kết")
 
 fig, ax = plt.subplots(figsize=(12, 5))
@@ -107,6 +107,6 @@ fig.tight_layout()
 st.pyplot(fig)
 plt.close(fig)
 
-# #8. Thong tin nguoi tao
+#8. Thong tin nguoi tao
 st.markdown("---")
-st.caption("Người tạo: [Lê Đồng Đại Phát] | MSSV: [0392679402]
+st.caption("Người tạo: [Lê Đồng Đại Phát] | MSSV: [038208020653]
