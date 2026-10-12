@@ -109,4 +109,4 @@ plt.close(fig)
 
 #8. Thong tin nguoi tao
 st.markdown("---")
-st.caption("Người tạo: [Lê Đồng Đại Phát] | MSSV: [038208020653])
+st.caption("Người tạo: [Lê Đồng Đại Phát] | MSSV: [038208020653]")
